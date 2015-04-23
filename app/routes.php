@@ -11,7 +11,17 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', array('as' => 'home', 'uses' => function()
 {
-	return View::make('hello');
-});
+	//return View::make('input');
+	$athlete = Athlete::find(2);
+	return $athlete;
+}));
+
+Route::get('athlete', ['as' => 'athlete.create', 'uses' => 'AthletesController@create']);
+Route::post('athlete', ['as' => 'athlete.store', 'uses' => 'AthletesController@store']);
+
+Route::get('workout', ['as' => 'workout.create', 'uses' => 'WorkoutsController@create']);
+Route::post('workout', ['as' => 'workout.store', 'uses' => 'WorkoutsController@store']);
+
+
