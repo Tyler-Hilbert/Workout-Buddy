@@ -1,6 +1,8 @@
 <?php
 class Workout extends Eloquent {
 
-    protected $table = 'workouts';
+	public $timestamps = false;
+
+    protected $table = 'workout';
 
 }

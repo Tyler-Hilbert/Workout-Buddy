@@ -11,8 +11,8 @@ class CreateWorkoutsTable extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		if ( ! Schema::hasTable('workouts')) {
-			Schema::create('workouts', function($table) {
+		if ( ! Schema::hasTable('workout')) {
+			Schema::create('workout', function($table) {
 				$table->date('workout_date');
 				$table->integer('weight');
 				$table->integer('reps');
@@ -28,7 +28,7 @@ class CreateWorkoutsTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('workouts');
+		Schema::dropIfExists('workout');
 
 	}
 

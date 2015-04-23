@@ -3,12 +3,12 @@ class AthleteTableSeeder extends Seeder
 {
 	public function run()
 	{
-		DB::table('athletes')->delete();
+		DB::table('athlete')->delete();
 
-		DB::table('athletes')->insert(
+		DB::table('athlete')->insert(
 			array(
-			'lastname' => 'Hilbert',
-			'firstname'    => 'Tyler'	
+				'lastname' => 'Hilbert',
+				'firstname' => 'Tyler'	
 		));
 	}
 }

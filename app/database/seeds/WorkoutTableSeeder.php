@@ -3,10 +3,10 @@ class WorkoutTableSeeder extends Seeder
 {
 	public function run()
 	{
-		DB::table('workouts')->delete();
+		DB::table('workout')->delete();
 
 		for ($i = 0; $i < 27; $i++) {
-			DB::table('workouts')->insert(
+			DB::table('workout')->insert(
 				array(
 					'athlete_id' => '1',
 					'weight' => rand(100, 700),

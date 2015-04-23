@@ -1,7 +1,9 @@
 <?php
 class Athlete extends Eloquent {
 
-    protected $table = 'athletes';
+	public $timestamps = false;
+
+    protected $table = 'athlete';
 
 	public function workout() {
         return $this->hasMany('Workout');

@@ -11,9 +11,9 @@ class CreateAthletesTable extends Migration {
 	 * @return void
 	 */
 	public function up() {
-		if ( ! Schema::hasTable('athletes')) {
-			Schema::create('athletes', function($table) {
-				$table->increments('athlete_id');
+		if ( ! Schema::hasTable('athlete')) {
+			Schema::create('athlete', function($table) {
+				$table->increments('id');
 				$table->string('firstname', 50)->nullable();
 				$table->string('lastname', 50)->nullable();
 			});
@@ -26,7 +26,7 @@ class CreateAthletesTable extends Migration {
 	 * @return void
 	 */
 	public function down() {
-		Schema::dropIfExists('athletes');
+		Schema::dropIfExists('athlete');
 
 	}
 
