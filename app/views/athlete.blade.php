@@ -16,7 +16,7 @@
 					@if ($errors->has('lastname')) <p class="help-block">{{ $errors->first('lastname') }}</p> @endif
 				</div>
 				<div class="form-group">
-					{{ Form::submit('Register', ['class' => 'btn btn-primary btn-lg']) }}
+					{{ Form::submit('Create athlete', ['class' => 'btn btn-primary btn-lg']) }}
 				</div>
 			{{ Form::close() }}
 		</div>
