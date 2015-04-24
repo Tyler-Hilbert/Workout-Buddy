@@ -8,11 +8,24 @@ class AthletesController extends \BaseController {
 	}
 
 	public function store() {
-		$athlete = new Athlete();
-		$athlete->firstname = Input::get('firstname');
-		$athlete->lastname = Input::get('lastname');
-		$athlete->save();
+		$rules = array(
+	        'firstname'			=> 'required',   
+	        'lastname'			=> 'required',                
+	    );
 
-		return Redirect::route('home');
+	    $validator = Validator::make(Input::all(), $rules);
+
+	    if ($validator->fails()) {
+	        $messages = $validator->messages();
+	        return Redirect::to('athlete')
+	        	->withErrors($validator)
+	        	->withInput();
+	    } else {
+		    $athlete = new Athlete();
+			$athlete->firstname = Input::get('firstname');
+			$athlete->lastname = Input::get('lastname');
+			$athlete->save();
+			return Redirect::route('home');
+	    }
 	}
 }

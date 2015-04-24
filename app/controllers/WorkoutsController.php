@@ -8,14 +8,32 @@ class WorkoutsController extends \BaseController {
 	}
 
 	public function store() {
-		$workout = new Workout();
-		$workout->workout_date = Input::get('workout_date');
-		$workout->weight = Input::get('weight');
-		$workout->reps = Input::get('reps');
-		$workout->workout = Input::get('workout');
-		$workout->athlete_id = Input::get('athlete_id');
-		$workout->save();
+		$rules = array(
+	        'workout_date'		=> 'required',   
+	        'weight'			=> 'required',        
+	        'reps'				=> 'required', 
+	        'workout'			=> 'required', 
+	        'athlete_id'		=> 'required',         
+	    );
 
-		return Redirect::route('home');
+	    $validator = Validator::make(Input::all(), $rules);
+
+	    if ($validator->fails()) {
+	    	$messages = $validator->messages();
+
+	        return Redirect::to('workout')
+	        	->withErrors($validator)
+	        	->withInput();
+	    } else {
+		    $workout = new Workout();
+			$workout->workout_date = Input::get('workout_date');
+			$workout->weight = Input::get('weight');
+			$workout->reps = Input::get('reps');
+			$workout->workout = Input::get('workout');
+			$workout->athlete_id = Input::get('athlete_id');
+			$workout->save();
+
+			return Redirect::route('home');
+	    }
 	}
 }
