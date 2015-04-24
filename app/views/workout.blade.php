@@ -22,12 +22,21 @@
 				</div>
 				<div class="form-group">
 					{{ Form::label('workout', 'Workout', ['class' => 'control-label']) }}
-					{{ Form::text('workout', null, ['class' => 'form-control input-lg']) }}
+					<?php
+						$workouts = DB::table('workout_names')->orderBy('workout', 'asc')->lists('workout','id');
+						echo Form::select('workout', $workouts);
+					?>
 					@if ($errors->has('workout')) <p class="help-block">{{ $errors->first('workout') }}</p> @endif
 				</div>
 				<div class="form-group">
-					{{ Form::label('athlete_id', 'AthleteId', ['class' => 'control-label']) }}
-					{{ Form::text('athlete_id', null, ['class' => 'form-control input-lg']) }}
+					{{ Form::label('athlete', 'Athlete', ['class' => 'control-label']) }}
+					<?php
+						$athletes = Athlete::select('id', DB::raw('lastname || " " || firstname  AS full_name'))
+									->orderBy('full_name', 'asc')
+									->lists('full_name','id');
+
+						echo Form::select('athlete_id', $athletes);
+					?>
 					@if ($errors->has('athlete_id')) <p class="help-block">{{ $errors->first('athlete_id') }}</p> @endif
 				</div>
 				<div class="form-group">

@@ -5,10 +5,10 @@ class AthleteTableSeeder extends Seeder
 	{
 		DB::table('athlete')->delete();
 
-		DB::table('athlete')->insert(
-			array(
-				'lastname' => 'Hilbert',
-				'firstname' => 'Tyler'	
-		));
+		Athlete::create(array('lastname' => 'Hilbert','firstname' => 'Tyler' ));
+		Athlete::create(array('lastname' => 'Patniak','firstname' => 'Ajay' ));
+		Athlete::create(array('lastname' => 'Xiang','firstname' => 'Sarah' ));
+		Athlete::create(array('lastname' => 'Kummer','firstname' => 'Greggory' ));
+		Athlete::create(array('lastname' => 'Murnan','firstname' => 'Kyle' ));
 	}
 }
