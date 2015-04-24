@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container">
-		<h1>Create Workout</h1>
+		<h1>Add Workout</h1>
 		<div class="well well-sm">
 			{{ Form::open(array('route' => 'workout.store')) }}
 				<div class="form-group">
@@ -23,7 +23,7 @@
 				<div class="form-group">
 					{{ Form::label('workout', 'Workout', ['class' => 'control-label']) }}
 					<?php
-						$workouts = DB::table('workout_names')->orderBy('workout', 'asc')->lists('workout','id');
+						$workouts = WorkoutName::orderBy('workout', 'asc')->lists('workout','id');
 						echo Form::select('workout', $workouts);
 					?>
 					@if ($errors->has('workout')) <p class="help-block">{{ $errors->first('workout') }}</p> @endif
@@ -40,7 +40,7 @@
 					@if ($errors->has('athlete_id')) <p class="help-block">{{ $errors->first('athlete_id') }}</p> @endif
 				</div>
 				<div class="form-group">
-					{{ Form::submit('Register', ['class' => 'btn btn-primary btn-lg']) }}
+					{{ Form::submit('Add workout', ['class' => 'btn btn-primary btn-lg']) }}
 				</div>
 			{{ Form::close() }}
 		</div>
