@@ -20,9 +20,5 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
-	public function showCalc()
-	{
-		return View::make('calculator');
-	}
 
 }

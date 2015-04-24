@@ -24,7 +24,10 @@ Route::post('athlete', ['as' => 'athlete.store', 'uses' => 'AthletesController@s
 Route::get('workout', ['as' => 'workout.create', 'uses' => 'WorkoutsController@create']);
 Route::post('workout', ['as' => 'workout.store', 'uses' => 'WorkoutsController@store']);
 
-Route::get('calculator', ['as' => 'calculator.rm', 'uses' => 'HomeController@showCalc']);
+Route::get('calculator', function() {
+	return View::make('calculator');
+});
+Route::post('getworkout', 'CalcController@show');
 
 
 

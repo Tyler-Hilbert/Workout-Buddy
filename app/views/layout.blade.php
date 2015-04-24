@@ -9,7 +9,5 @@
 </head>
 <body>
 	@yield('content') 
-
-	{{ HTML::script('js/script.js') }}
 </body>
 </html>
