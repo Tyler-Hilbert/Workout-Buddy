@@ -11,7 +11,7 @@ class WorkoutTableSeeder extends Seeder
 					'athlete_id' => '1',
 					'weight' => rand(100, 700),
 					'reps' => rand(4, 25),
-					'workout' => substr( md5(rand()), 0, 7),
+					'workout' => rand(1, 3),
 					'workout_date' => '2014:04:21'
 			));
 		}
