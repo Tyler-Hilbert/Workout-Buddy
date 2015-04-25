@@ -4,9 +4,9 @@ class CalcController extends \BaseController {
 	public function show()
 	{
 		$workout = Workout::first();
-		$reps = 10;
+		$reps = $workout->reps;
 		$weight = $workout->weight;
-		return $weight * (1 + ($reps / 30));
+		return $weight / (1.0278-(.0278*$reps));
 	}
 
 }
