@@ -13,9 +13,7 @@
 
 Route::get('/', array('as' => 'home', 'uses' => function()
 {
-	//return View::make('input');
-	$athlete = Athlete::find(2);
-	return $athlete;
+	return View::make('calculator');
 }));
 
 

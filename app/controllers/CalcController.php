@@ -5,7 +5,10 @@ class CalcController extends \BaseController {
 	{
 		$athleteId = Input::get('athlete');
 		$workoutId = Input::get('workout');
-		$workout = Workout::where('workout', $workoutId)->where('athlete_id', $athleteId)->first();
+		$workout = Workout::where('workout', $workoutId)
+						->where('athlete_id', $athleteId)
+						->orderBy('workout_date', 'desc')
+						->first();
 
 		$reps = $workout->reps;
 		$weight = $workout->weight;
