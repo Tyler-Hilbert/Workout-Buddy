@@ -5,19 +5,19 @@
 		function calc() {
 			var athleteList = document.getElementById("athlete");
 			var athlete = athleteList.options[athleteList.selectedIndex].value;
-			console.log(athlete);
-			var workoutList = document.getElementById("workout");
-			var workout = workoutList.options[workoutList.selectedIndex].value;
-			console.log(workout);
 
 	        $.ajax({
 				url: "getworkout",
-				data: {athlete: athlete, workout: workout},
+				data: {athlete: athlete},
+				dataType: "json",
 				method: "POST"
 			}).done(function(response) {
-				var perList = document.getElementById("percent");
-				var percent = perList.options[perList.selectedIndex].value;
-				var output = Math.round(percent * response);
+				var output = ""
+				for (var workout in response) {
+					if (response.hasOwnProperty(workout)) {
+					      output += workout + " " + response[workout].reps + " @ " + response[workout].weight + "<br>";
+					   }
+					}
 				$("#output").html(output);
 			});
 		}
@@ -27,10 +27,6 @@
 		<h1>Get calculation</h1>
 		<div class="row">
 			<div class="well well-sm col-md-6">
-				<div class="form-group">
-					{{ Form::label('percent', 'Percent', ['class' => 'control-label']) }}	
-					{{ Form::select('percent', array('.75' => '75%', '.85' => '85%', '.95' => '95%'), 'default', array('id' => 'percent')); }}
-				</div>
 				<div class="form-group">
 					{{ Form::label('athlete', 'Athlete', ['class' => 'control-label']) }}
 					<?php
@@ -42,19 +38,14 @@
 					?>
 				</div>
 				<div class="form-group">
-					{{ Form::label('workout', 'Workout', ['class' => 'control-label']) }}
-					<?php
-						$workouts = WorkoutName::orderBy('workout', 'asc')->lists('workout','id');
-						echo Form::select('workout', $workouts, 'default', array('id' => 'workout'));
-					?>
-					@if ($errors->has('workout')) <p class="help-block">{{ $errors->first('workout') }}</p> @endif
-				</div>
-				<div class="form-group">
 					<button onClick="calc()">Calculate</button>
 				</div>
 			</div>
 		</div>
-		<div id="output"></div>
+
+		<div id="output">
+
+		</div>
 	</div>
 
 @stop
