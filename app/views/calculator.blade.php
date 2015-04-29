@@ -12,13 +12,40 @@
 				dataType: "json",
 				method: "POST"
 			}).done(function(response) {
-				var output = ""
+
+				var tableRef = document.getElementById("table");
+
+				// Clear previous rows
+				for (var i = --tableRef.rows.length; i > 0; i--) {
+					tableRef.deleteRow(i);
+				}
+
+				// Add rows to table
 				for (var workout in response) {
 					if (response.hasOwnProperty(workout)) {
-					      output += workout + " " + response[workout].reps + " @ " + response[workout].weight + "<br>";
-					   }
+						var newRow = tableRef.insertRow(tableRef.rows.length);
+
+						var workoutCell  = newRow.insertCell(0);
+						var workoutText  = document.createTextNode(workout);
+						workoutCell.appendChild(workoutText);
+
+						var reps = response[workout].reps;
+						var repsCell  = newRow.insertCell(1);
+						var repsText  = document.createTextNode(reps);
+						repsCell.appendChild(repsText);
+
+						var weight = response[workout].weight;
+						var weightCell  = newRow.insertCell(2);
+						var weightText  = document.createTextNode(weight);
+						weightCell.appendChild(weightText);
+
+						var oneRM = weight / (1.0278 - (.0278 * reps));
+						oneRM = 5 * Math.round(oneRM/5);
+						var oneRMCell  = newRow.insertCell(3);
+						var oneRMText  = document.createTextNode(oneRM);
+						oneRMCell.appendChild(oneRMText);
 					}
-				$("#output").html(output);
+				}
 			});
 		}
 	</script>
@@ -43,9 +70,15 @@
 			</div>
 		</div>
 
-		<div id="output">
-
+		<div>
+			<table class="table" id="table">
+				<tr>
+					<td>Workout</td>
+					<td>Weight</td>
+					<td>Reps</td>
+					<td>Max 1rm</td>
+				</tr>
+			</table>
 		</div>
 	</div>
-
 @stop

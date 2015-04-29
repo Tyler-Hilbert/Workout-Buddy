@@ -13,7 +13,7 @@ class CalcController extends \BaseController {
 							->where('athlete_id', $athleteId)
 							->orderBy('workout_date', 'desc')
 							->first();
-			//$weight / (1.0278-(.0278*$reps));
+							
 			$workout = array();
 			$workout['reps'] = $wk->reps;
 			$workout['weight'] = $wk->weight;
