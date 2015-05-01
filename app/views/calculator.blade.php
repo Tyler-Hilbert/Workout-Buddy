@@ -51,7 +51,7 @@
 	</script>
 
 	<div class="container ">
-		<h1>Get calculation</h1>
+		<h1>Create Workout</h1>
 		<div class="row">
 			<div class="well well-sm col-md-6">
 				<div class="form-group">
