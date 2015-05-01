@@ -29,15 +29,15 @@
 						var workoutText  = document.createTextNode(workout);
 						workoutCell.appendChild(workoutText);
 
-						var reps = response[workout].reps;
-						var repsCell  = newRow.insertCell(1);
-						var repsText  = document.createTextNode(reps);
-						repsCell.appendChild(repsText);
-
 						var weight = response[workout].weight;
-						var weightCell  = newRow.insertCell(2);
+						var weightCell  = newRow.insertCell(1);
 						var weightText  = document.createTextNode(weight);
 						weightCell.appendChild(weightText);
+
+						var reps = response[workout].reps;
+						var repsCell  = newRow.insertCell(2);
+						var repsText  = document.createTextNode(reps);
+						repsCell.appendChild(repsText);
 
 						var oneRM = weight / (1.0278 - (.0278 * reps));
 						oneRM = 5 * Math.round(oneRM/5);
