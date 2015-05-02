@@ -25,8 +25,8 @@ Route::get('workout', ['as' => 'workout.create', 'uses' => 'WorkoutsController@c
 Route::post('workout', ['as' => 'workout.store', 'uses' => 'WorkoutsController@store']);
 
 
-Route::get('workout_name', ['as' => 'workout_name.create', 'uses' => 'WorkoutNamesController@create']);
-Route::post('workout_name', ['as' => 'workout_name.store', 'uses' => 'WorkoutNamesController@store']);
+Route::get('exercise', ['as' => 'exercise.create', 'uses' => 'ExerciseController@create']);
+Route::post('exercise', ['as' => 'exercise.store', 'uses' => 'ExerciseController@store']);
 
 
 Route::get('calculator', function() {

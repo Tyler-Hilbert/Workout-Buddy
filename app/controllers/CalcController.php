@@ -8,19 +8,20 @@ class CalcController extends \BaseController {
 		$athleteId = Input::get('athlete');
 		$workouts = array();
 
-		foreach (WorkoutName::lists('id') as $workoutId) {
-			$wk = Workout::where('workout', $workoutId)
+		foreach (Exercise::lists('id') as $exerciseId) {
+			$wk = Workout::where('exercise', $exerciseId)
 							->where('athlete_id', $athleteId)
 							->orderBy('workout_date', 'desc')
 							->first();
-							
-			$workout = array();
-			$workout['reps'] = $wk->reps;
-			$workout['weight'] = $wk->weight;
-			$key = WorkoutName::where('id', $workoutId)->first()->workout;
-			$workouts[$key] = $workout;
+			if (!is_null($wk)) {
+				$exercise = array();
+				$exercise['reps'] = $wk->reps;
+				$exercise['weight'] = $wk->weight;
+				$key = Exercise::where('id', $exerciseId)->first()->exercise;
+				$workout[$key] = $exercise;
+			}
 		}
-		return json_encode($workouts);
+		return json_encode($workout);
 	}
 
 }

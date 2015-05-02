@@ -1,28 +1,28 @@
 <?php
 
-class WorkoutNamesController extends \BaseController {
+class ExerciseController extends \BaseController {
 
 	public function create()
 	{
-		return View::make('workout_name');
+		return View::make('exercise');
 	}
 
 	public function store() {
 		$rules = array(
-	        'workout'			=> 'required',                
+	        'exercise'			=> 'required',                
 	    );
 
 	    $validator = Validator::make(Input::all(), $rules);
 
 	    if ($validator->fails()) {
 	        $messages = $validator->messages();
-	        return Redirect::to('workout')
+	        return Redirect::to('exersie')
 	        	->withErrors($validator)
 	        	->withInput();
 	    } else {
-		    $workoutName = new WorkoutName();
-			$workoutName->workout = Input::get('workout');
-			$workoutName->save();
+		    $exercise = new exercise();
+			$exercise->exercise = Input::get('exercise');
+			$exercise->save();
 			return Redirect::route('home');
 	    }
 	}

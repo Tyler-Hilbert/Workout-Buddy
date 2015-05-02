@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('AthleteTableSeeder');
 		$this->call('WorkoutTableSeeder');
-		$this->call('WorkoutNamesTableSeeder');
+		$this->call('ExerciseTableSeeder');
 	}
 
 }

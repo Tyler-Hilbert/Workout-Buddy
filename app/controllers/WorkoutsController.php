@@ -12,7 +12,7 @@ class WorkoutsController extends \BaseController {
 	        'workout_date'		=> 'required',   
 	        'weight'			=> 'required',        
 	        'reps'				=> 'required', 
-	        'workout'			=> 'required', 
+	        'exercise'			=> 'required', 
 	        'athlete_id'		=> 'required',         
 	    );
 
@@ -29,7 +29,7 @@ class WorkoutsController extends \BaseController {
 			$workout->workout_date = Input::get('workout_date');
 			$workout->weight = Input::get('weight');
 			$workout->reps = Input::get('reps');
-			$workout->workout = Input::get('workout');
+			$workout->exercise = Input::get('exercise');
 			$workout->athlete_id = Input::get('athlete_id');
 			$workout->save();
 

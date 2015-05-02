@@ -21,12 +21,12 @@
 					@if ($errors->has('reps')) <p class="help-block">{{ $errors->first('reps') }}</p> @endif
 				</div>
 				<div class="form-group">
-					{{ Form::label('workout', 'Workout', ['class' => 'control-label']) }}
+					{{ Form::label('exercise', 'Exercise', ['class' => 'control-label']) }}
 					<?php
-						$workouts = WorkoutName::orderBy('workout', 'asc')->lists('workout','id');
-						echo Form::select('workout', $workouts);
+						$workout = Exercise::orderBy('exercise', 'asc')->lists('exercise','id');
+						echo Form::select('exercise', $workout);
 					?>
-					@if ($errors->has('workout')) <p class="help-block">{{ $errors->first('workout') }}</p> @endif
+					@if ($errors->has('exercise')) <p class="help-block">{{ $errors->first('exercise') }}</p> @endif
 				</div>
 				<div class="form-group">
 					{{ Form::label('athlete', 'Athlete', ['class' => 'control-label']) }}

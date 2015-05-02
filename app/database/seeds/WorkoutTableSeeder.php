@@ -12,7 +12,7 @@ class WorkoutTableSeeder extends Seeder
 						'athlete_id' => $i,
 						'weight' => rand(100, 700),
 						'reps' => rand(4, 25),
-						'workout' => $w,
+						'exercise' => $w,
 						'workout_date' => '2014:04:21'
 				));
 			}

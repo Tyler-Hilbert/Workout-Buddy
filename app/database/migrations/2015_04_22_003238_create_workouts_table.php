@@ -16,7 +16,7 @@ class CreateWorkoutsTable extends Migration {
 				$table->date('workout_date');
 				$table->integer('weight');
 				$table->integer('reps');
-				$table->integer('workout');
+				$table->integer('exercise');
 				$table->integer('athlete_id');
 			});
 		}

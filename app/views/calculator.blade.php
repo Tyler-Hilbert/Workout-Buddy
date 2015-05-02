@@ -73,7 +73,7 @@
 		<div>
 			<table class="table" id="table">
 				<tr>
-					<td>Workout</td>
+					<td>Exercise</td>
 					<td>Weight</td>
 					<td>Reps</td>
 					<td>Max 1rm</td>
