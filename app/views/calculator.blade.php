@@ -2,6 +2,8 @@
 
 @section('content')
 	<script>
+		var percents = [.75, .85, .95]; // Percents that will be calculated
+
 		function calc() {
 			var athleteList = document.getElementById("athlete");
 			var athlete = athleteList.options[athleteList.selectedIndex].value;
@@ -31,7 +33,7 @@
 
 						var weight = response[workout].weight;
 						var weightCell  = newRow.insertCell(1);
-						var weightText  = document.createTextNode(weight);
+						var weightText  = document.createTextNode(weight + "lb");
 						weightCell.appendChild(weightText);
 
 						var reps = response[workout].reps;
@@ -42,8 +44,17 @@
 						var oneRM = weight / (1.0278 - (.0278 * reps));
 						oneRM = 5 * Math.round(oneRM/5);
 						var oneRMCell  = newRow.insertCell(3);
-						var oneRMText  = document.createTextNode(oneRM);
+						var oneRMText  = document.createTextNode(oneRM + "lb");
 						oneRMCell.appendChild(oneRMText);
+
+						
+						for (var i = 0; i < percents.length; i++) {						
+							var percent = oneRM * percents[i];
+							percent = 5 * Math.round(percent/5);
+							var percentCell  = newRow.insertCell(i + 4);
+							var percentText  = document.createTextNode(percent + "lb");
+							percentCell.appendChild(percentText);
+						}
 					}
 				}
 			});
@@ -77,6 +88,11 @@
 					<td>Weight</td>
 					<td>Reps</td>
 					<td>Max 1rm</td>
+					<script>
+						for (var i = 0; i < percents.length; i++) {
+							document.write("<td>" + percents[i] * 100 + "%</td>");
+						}
+					</script>
 				</tr>
 			</table>
 		</div>

@@ -15,11 +15,13 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ URL::route('home') }}">Get Workout</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ URL::route('athlete.create') }}">Create Athlete</a></li>
-                <li><a href="{{ URL::route('workout.create') }}">Add Workout</a></li>
-                <li><a href="{{ URL::route('exercise.create') }}">Create Exercise</a></li>
-            </ul>
+            <div class="container">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ URL::route('athlete.create') }}">Create Athlete</a></li>
+                    <li><a href="{{ URL::route('workout.create') }}">Add Workout</a></li>
+                    <li><a href="{{ URL::route('exercise.create') }}">Create Exercise</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>

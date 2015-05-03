@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
     <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>	
     {{ HTML::style("css/bootstrap.min.css") }}
-	<title>Laravel PHP Framework</title>
+	<title>Workout Buddy</title>
 	@yield('js')
 </head>
 <body>
