@@ -18,7 +18,7 @@
             <div class="container">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ URL::route('athlete.create') }}">Create Athlete</a></li>
-                    <li><a href="{{ URL::route('workout.create') }}">Add Workout</a></li>
+                    <li><a href="{{ URL::route('workout.create') }}">Record Results</a></li>
                     <li><a href="{{ URL::route('exercise.create') }}">Create Exercise</a></li>
                 </ul>
             </div>
