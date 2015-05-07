@@ -32,11 +32,11 @@
 						</div>
 						<div class="form-group">
 							{{ Form::label('weight', 'Weight', ['class' => 'control-label']) }}
-							{{ Form::number('weight0', null, ['class' => 'form-control input-sm', 'required']) }}
+							{{ Form::number('weight0', null, ['class' => 'form-control input-sm', 'required', 'placeholder' => 'Enter weight (lb)']) }}
 						</div>
 						<div class="form-group">
 							{{ Form::label('reps', 'Reps', ['class' => 'control-label']) }}
-							{{ Form::number('reps0', null, ['class' => 'form-control input-sm', 'required', 'type' => 'number']) }}
+							{{ Form::number('reps0', null, ['class' => 'form-control input-sm', 'required', 'type' => 'number', 'placeholder' => 'Enter reps']) }}
 						</div>
 					</div>
 
@@ -56,7 +56,7 @@
 
 					<div class="form-group" id="buttons">
 						{{ Form::submit('Record Results', ['class' => 'btn btn-primary btn-lg']) }}
-						{{ Form::button('Add Exercise', ['class' => 'btn', 'onClick' => 'addExercise()']) }}
+						{{ Form::button('Add Exercise', ['class' => 'btn btn-info', 'onClick' => 'addExercise()']) }}
 					</div>
 				{{ Form::close() }}
 			</div>
