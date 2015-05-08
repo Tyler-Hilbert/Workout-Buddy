@@ -39,7 +39,6 @@
 			<table class="table" id="table">
 				<?php
 					foreach(TimedExercise::all() as $exercise) {
-
 						echo "<tr><td>" . $exercise->exercise . "</td>";
 						echo "<td>" . $exercise->time . "</td></tr>";
 					}
@@ -51,11 +50,11 @@
 				<h3>Add new Timed Exercise</h3>
 				<div class="form-group">
 					{{ Form::label('exercise', 'Exercise name', ['class' => 'control-label']) }}
-					{{ Form::text('exercise', null, ['class' => 'form-control input-lg']) }}
+					{{ Form::text('exercise', null, ['class' => 'form-control input-lg', 'placeholder' => 'Exercise name']) }}
 				</div>
 				<div class="form-group">
 					{{ Form::label('time', 'Time', ['class' => 'control-label']) }}
-					{{ Form::text('time', null, ['class' => 'form-control input-lg']) }}
+					{{ Form::text('time', null, ['class' => 'form-control input-lg', 'placeholder' => 'MM:SS']) }}
 				</div>
 				<div class="form-group">
 					<button onClick="add()">Add exercise</button>

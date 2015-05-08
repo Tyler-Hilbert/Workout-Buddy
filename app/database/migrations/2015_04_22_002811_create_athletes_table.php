@@ -14,8 +14,10 @@ class CreateAthletesTable extends Migration {
 		if ( ! Schema::hasTable('athlete')) {
 			Schema::create('athlete', function($table) {
 				$table->increments('id');
-				$table->string('firstname', 50)->nullable();
-				$table->string('lastname', 50)->nullable();
+				$table->string('firstname', 50);
+				$table->string('lastname', 50);
+				$table->string('number', 15);
+				$table->integer('grad_year');
 			});
 		}
 	}
