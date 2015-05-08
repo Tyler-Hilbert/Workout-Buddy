@@ -32,11 +32,11 @@
 						</div>
 						<div class="form-group">
 							{{ Form::label('weight', 'Weight', ['class' => 'control-label']) }}
-							{{ Form::number('weight0', null, ['class' => 'form-control input-sm', 'required', 'placeholder' => 'Enter weight (lb)']) }}
+							{{ Form::number('weight0', null, ['class' => 'form-control input-sm', 'required', 'min' => '5', 'placeholder' => 'Enter weight (lb)']) }}
 						</div>
 						<div class="form-group">
 							{{ Form::label('reps', 'Reps', ['class' => 'control-label']) }}
-							{{ Form::number('reps0', null, ['class' => 'form-control input-sm', 'required', 'type' => 'number', 'placeholder' => 'Enter reps']) }}
+							{{ Form::number('reps0', null, ['class' => 'form-control input-sm', 'required', 'min' => '1', 'type' => 'number', 'placeholder' => 'Enter reps']) }}
 						</div>
 					</div>
 

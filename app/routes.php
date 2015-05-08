@@ -28,6 +28,8 @@ Route::post('workout', ['as' => 'workout.store', 'uses' => 'WorkoutsController@s
 Route::get('exercise', ['as' => 'exercise.create', 'uses' => 'ExerciseController@create']);
 Route::post('exercise', ['as' => 'exercise.store', 'uses' => 'ExerciseController@store']);
 
+Route::get('timed_exercise', ['as' => 'timed_exercise.create', 'uses' => 'TimedExerciseController@create']);
+Route::post('timed_exercise', ['as' => 'timed_exercise.store', 'uses' => 'TimedExerciseController@store']);
 
 Route::get('calculator', function() {
 	return View::make('calculator');

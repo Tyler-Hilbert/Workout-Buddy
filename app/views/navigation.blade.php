@@ -20,6 +20,7 @@
                     <li><a href="{{ URL::route('athlete.create') }}">Create Athlete</a></li>
                     <li><a href="{{ URL::route('workout.create') }}">Record Results</a></li>
                     <li><a href="{{ URL::route('exercise.create') }}">Create Exercise</a></li>
+                    <li><a href="{{ URL::route('timed_exercise.create') }}">Timed Exercise</a></li>
                 </ul>
             </div>
         </div>
