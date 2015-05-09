@@ -1,4 +1,4 @@
-<nav id="myNavbar" class="navbar navbar-static navbar-inverse" role="navigation">
+<nav id="myNavbar" class="navbar navbar-static-top navbar-inverse" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="container-fluid">
         <div class="navbar-header">
