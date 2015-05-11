@@ -7,21 +7,21 @@
 		function calc() {
 			var athleteList = document.getElementById("athlete");
 			var athlete = athleteList.options[athleteList.selectedIndex].value;
+			var date = document.getElementById("date").value;
+
+			// Clear previous rows
+			var tableRef = document.getElementById("table");
+			for (var i = --tableRef.rows.length; i > 0; i--) {
+				tableRef.deleteRow(i);
+			}
 
 	        $.ajax({
 				url: "getworkout",
-				data: {athlete: athlete},
+				data: {athlete: athlete, date, date},
 				dataType: "json",
 				method: "POST"
 			}).done(function(response) {
-
-				var tableRef = document.getElementById("table");
-
-				// Clear previous rows
-				for (var i = --tableRef.rows.length; i > 0; i--) {
-					tableRef.deleteRow(i);
-				}
-
+				
 				// Add rows to table
 				for (var workout in response) {
 					if (response.hasOwnProperty(workout)) {
@@ -47,14 +47,20 @@
 						var oneRMText  = document.createTextNode(oneRM + "lb");
 						oneRMCell.appendChild(oneRMText);
 
-						
-						for (var i = 0; i < percents.length; i++) {						
+						var i = 0;
+						for (; i < percents.length; i++) {						
 							var percent = oneRM * percents[i];
 							percent = 5 * Math.round(percent/5);
 							var percentCell  = newRow.insertCell(i + 4);
 							var percentText  = document.createTextNode(percent + "lb");
 							percentCell.appendChild(percentText);
+							console.log(i);
 						}
+
+						var date = response[workout].date;
+						var dateCell  = newRow.insertCell(++i + percents.length);
+						var dateText  = document.createTextNode(date);
+						dateCell.appendChild(dateText);
 					}
 				}
 			});
@@ -76,6 +82,10 @@
 					?>
 				</div>
 				<div class="form-group">
+					{{ Form::label('date', 'As of', ['class' => 'control-label']) }}
+					{{ Form::input('date', 'date', date('Y-m-d')) }}
+				</div>
+				<div class="form-group">
 					<button onClick="calc()">Calculate</button>
 				</div>
 			</div>
@@ -93,6 +103,7 @@
 							document.write("<td>" + percents[i] * 100 + "%</td>");
 						}
 					</script>
+					<td>Date</td>
 				</tr>
 			</table>
 		</div>

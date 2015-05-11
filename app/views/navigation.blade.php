@@ -1,5 +1,4 @@
 <nav id="myNavbar" class="navbar navbar-static-top navbar-inverse" role="navigation">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
@@ -10,7 +9,6 @@
             </button>
             <a class="navbar-brand" href="{{ URL::route('home') }}">Weight Room</a>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="nav navbar-nav">
                 <li><a href="{{ URL::route('home') }}">Get Workout</a></li>

@@ -19,7 +19,7 @@
 					</div>
 					<div class="form-group">
 						{{ Form::label('workout_date', 'Workout Date', ['class' => 'control-label']) }}
-						{{ Form::input('date', 'workout_date', null, ['required']) }}
+						{{ Form::input('date', 'workout_date',  date('Y-m-d'), ['required']) }}
 						@if ($errors->has('workout_date')) <p class="help-block">{{ $errors->first('workout_date') }}</p> @endif					
 					</div>
 					<div id="cloneable_exercise">
