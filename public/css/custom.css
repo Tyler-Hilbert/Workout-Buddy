@@ -3,3 +3,7 @@
     width: auto;
     display: inline;
 }
+
+.input-sm {
+	width: 110px;
+}

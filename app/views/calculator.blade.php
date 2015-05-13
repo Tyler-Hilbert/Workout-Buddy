@@ -17,7 +17,7 @@
 
 	        $.ajax({
 				url: "getworkout",
-				data: {athlete: athlete, date, date},
+				data: {athlete: athlete, date: date},
 				dataType: "json",
 				method: "POST"
 			}).done(function(response) {
