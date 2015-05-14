@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder {
 		$this->call('WorkoutTableSeeder');
 		$this->call('ExerciseTableSeeder');
 		$this->call('TimedExerciseTableSeeder');
-		$this->call('MuscleGroupTableSeeder');
 		$this->call('MajorMuscleTableSeeder');
 		$this->call('SecondaryMuscleTableSeeder');
 	}
