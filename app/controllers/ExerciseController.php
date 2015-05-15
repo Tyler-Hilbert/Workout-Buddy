@@ -9,9 +9,8 @@ class ExerciseController extends \BaseController {
 
 	public function store() {
 		$rules = array(
-	        'exercise'			=> 'required', 
-	        'primary'			=> 'required',
-	        'secondary'			=> 'required'               
+	        'exercise'					=> 'required', 
+	        'major_muscle'				=> 'required',            
 	    );
 
 	    $validator = Validator::make(Input::all(), $rules);
@@ -22,10 +21,10 @@ class ExerciseController extends \BaseController {
 	        	->withErrors($validator)
 	        	->withInput();
 	    } else {
-		    $exercise = new exercise();
+		    $exercise = new Exercise();
 			$exercise->exercise = Input::get('exercise');
-			$exercise->primary_muscle = Input::get('primary');
-			$exercise->secondary_muscle = Input::get('secondary');
+			$exercise->major_muscle = Input::get('major_muscle');
+			$exercise->secondary_muscle = Input::get('secondary_muscle');
 			$exercise->save();
 			return Redirect::route('home');
 	    }

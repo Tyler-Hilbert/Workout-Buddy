@@ -10,7 +10,9 @@ class TimedExerciseController extends \BaseController {
 	public function store() {
 		$rules = array(
 	        'exercise'				=> 'required',  
-	        'time'					=> 'required',              
+	        'time'					=> 'required', 
+	        'reps' 					=> 'required',
+	        'majorMuscle'			=> 'required'             
 	    );
 
 	    $validator = Validator::make(Input::all(), $rules);
@@ -24,6 +26,9 @@ class TimedExerciseController extends \BaseController {
 		    $te = new TimedExercise();
 			$te->exercise = Input::get('exercise');
 			$te->time = Input::get("time");
+			$te->reps = Input::get('reps');
+			$te->major_muscle = Input::get('majorMuscle');
+			$te->secondary_muscle = Input::get('secondaryMuscle');
 			$te->save();
 
 			$exercise = array('exercise' => $te->exercise, 'time' => $te->time);

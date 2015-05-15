@@ -31,6 +31,13 @@ Route::post('exercise', ['as' => 'exercise.store', 'uses' => 'ExerciseController
 Route::get('timed_exercise', ['as' => 'timed_exercise.create', 'uses' => 'TimedExerciseController@create']);
 Route::post('timed_exercise', ['as' => 'timed_exercise.store', 'uses' => 'TimedExerciseController@store']);
 
+Route::get('majormuscle', ['as' => 'majormuscle.create', 'uses' => 'MajorMuscleController@create']);
+Route::post('majormuscle', ['as' => 'majormuscle.store', 'uses' => 'MajorMuscleController@store']);
+Route::post('getsecondarymuscles', 'MajorMuscleController@secondarymuscle');
+
+Route::get('secondarymuscle', ['as' => 'secondarymuscle.create', 'uses' => 'SecondaryMuscleController@create']);
+Route::post('secondarymuscle', ['as' => 'secondarymuscle.store', 'uses' => 'SecondaryMuscleController@store']);
+
 Route::get('calculator', function() {
 	return View::make('calculator');
 });

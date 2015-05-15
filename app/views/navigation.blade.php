@@ -10,15 +10,14 @@
             <a class="navbar-brand" href="{{ URL::route('home') }}">Weight Room</a>
         </div>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="nav navbar-nav">
-                <li><a href="{{ URL::route('home') }}">Get Workout</a></li>
-            </ul>
             <div class="container">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ URL::route('athlete.create') }}">Athletes</a></li>
                     <li><a href="{{ URL::route('workout.create') }}">Record Results</a></li>
+                    <li><a href="{{ URL::route('athlete.create') }}">Athletes</a></li>
                     <li><a href="{{ URL::route('exercise.create') }}">Create Exercise</a></li>
                     <li><a href="{{ URL::route('timed_exercise.create') }}">Timed Exercise</a></li>
+                    <li><a href="{{ URL::route('secondarymuscle.create') }}">Create Secondary Muscle</a></li>
+                    <li><a href="{{ URL::route('majormuscle.create') }}">Create Major Muscle</a></li>
                 </ul>
             </div>
         </div>

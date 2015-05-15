@@ -15,7 +15,8 @@ class CreateExerciseTable extends Migration {
 			Schema::create('exercise', function($table) {
 				$table->increments('id');
 				$table->String('exercise');
-				$table->integer('secondary_muscle');
+				$table->integer('major_muscle');
+				$table->integer('secondary_muscle')->nullable();
 			});
 		}
 	}
