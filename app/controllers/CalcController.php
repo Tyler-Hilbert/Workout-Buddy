@@ -11,7 +11,7 @@ class CalcController extends \BaseController {
 		foreach (Exercise::lists('id') as $exerciseId) {
 			$wk = Workout::where('exercise', $exerciseId)
 							->where('athlete_id', $athleteId)
-							->where('workout_date', '<', $date)
+							->where('workout_date', '<=', $date)
 							->orderBy('workout_date', 'desc')
 							->first();
 			if (!is_null($wk)) {
