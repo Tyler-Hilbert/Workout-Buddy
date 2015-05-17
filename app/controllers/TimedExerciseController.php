@@ -19,9 +19,7 @@ class TimedExerciseController extends \BaseController {
 
 	    if ($validator->fails()) {
 	        $messages = $validator->messages();
-	        return Redirect::to('timed_exersie')
-	        	->withErrors($validator)
-	        	->withInput();
+	        return;
 	    } else {
 		    $te = new TimedExercise();
 			$te->exercise = Input::get('exercise');
@@ -31,7 +29,19 @@ class TimedExerciseController extends \BaseController {
 			$te->secondary_muscle = Input::get('secondaryMuscle');
 			$te->save();
 
-			$exercise = array('exercise' => $te->exercise, 'time' => $te->time);
+			$exercise = array(
+				'exercise' => $te->exercise, 
+				'time' => $te->time,
+				'reps' => $te->reps,
+				'major' => MajorMuscle::find($te->major_muscle)->name,
+			);
+
+			if ($te->secondary_muscle !== null) {
+				$exercise['secondary'] = SecondaryMuscle::find($te->secondary_muscle)->name;
+			} 
+
+
+
 			return json_encode($exercise);
 	    }
 	}

@@ -5,12 +5,25 @@
 		<div>
 			<h1>Timed Exercises</h1>
 			<table class="table" id="table">
+				<tr>
+					<td>Exercise</td>
+					<td>Time</td>
+					<td>Reps</td>
+					<td>Major Muscle</td>
+					<td>Seconadry Muscle</td>
+				</tr>
 				<?php
 					foreach(TimedExercise::all() as $exercise) {
 						echo "<tr><td>" . $exercise->exercise . "</td>";
 						echo "<td>" . $exercise->time . "</td>";
 						echo "<td>" . $exercise->reps . "</td>";
-						echo "<td>" . SecondaryMuscle::find($exercise->secondary_muscle)->name . "</td></tr>";
+						echo "<td>" . MajorMuscle::find($exercise->major_muscle)->name . "</td>";
+						if ($exercise->secondary_muscle !== null) {
+							echo "<td>" . SecondaryMuscle::find($exercise->secondary_muscle)->name . "</td>";
+						} else {
+							echo "<td></td>";
+						}
+						echo "</tr>";
 					}
 				?>
 			</table>
@@ -38,7 +51,7 @@
 							array('id' => 'major_muscle', 'onchange' => 'updateSecondary()'));
 					?>
 				</div>
-				<div id='secondary_muscle'class="form-group"></div>
+				<div id='secondary_muscle_div'class="form-group"></div>
 
 				<div class="form-group">
 					{{ Form::button('Add Exercise', ['class' => 'btn btn-primary btn-lg', 'onClick' => 'add()']) }}
@@ -56,7 +69,7 @@
 				secondaryMuscle = true;
 				updateSecondary();
 			} else {
-				$('#secondary_muscle').html("");
+				$('#secondary_muscle_div').html("");
 				secondaryMuscle = false;
 			}
 		}
@@ -68,7 +81,7 @@
 					data: {major_muscle: major_muscle.options[major_muscle.selectedIndex].value },
 					method: "POST"
 				}).done(function(response) {
-					$('#secondary_muscle').html(response);
+					$('#secondary_muscle_div').html(response);
 				});	
 			}
 		}
@@ -114,8 +127,19 @@
 				var repsText = document.createTextNode(response.reps);
 				repsCell.appendChild(repsText);
 
+				var majorCell = newRow.insertCell(3);
+				var majorText = document.createTextNode(response.major);
+				majorCell.appendChild(majorText);
+
+				var secondaryCell = newRow.insertCell(4);
+				if(typeof response.secondary !== 'undefined'){
+					var secondaryText = document.createTextNode(response.secondary);
+					secondaryCell.appendChild(secondaryText);
+				}
+
 				exercise.value = "";
 				time.value = "";
+				reps.value = "";
 
 			});
 		}

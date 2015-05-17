@@ -18,7 +18,7 @@ class CreateTimedExerciseTable extends Migration {
 				$table->String('exercise');
 				$table->time('time');
 				$table->integer('major_muscle');
-				$table->integer('secondary_muscle')->nullable;
+				$table->integer('secondary_muscle')->nullable();
 				$table->integer('reps');
 			});
 		}
