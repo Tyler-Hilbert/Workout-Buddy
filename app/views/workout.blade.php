@@ -32,7 +32,14 @@
 						</div>
 						<div class="form-group">
 							{{ Form::label('weight', 'Weight', ['class' => 'control-label']) }}
-							{{ Form::number('weight0', null, ['class' => 'form-control input-sm', 'required', 'min' => '5', 'placeholder' => 'Enter weight']) }}
+							{{ Form::number('weight0', null, 
+								['class' => 'form-control input-sm', 
+								'required', 
+								'min' => '5', 
+								'step' => '5',
+								'placeholder' => 'Enter weight'
+								]) 
+							}}
 						</div>
 						<div class="form-group">
 							{{ Form::label('reps', 'Reps', ['class' => 'control-label']) }}
