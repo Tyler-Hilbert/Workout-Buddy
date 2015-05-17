@@ -26,8 +26,39 @@
 						<div class="form-group">
 							{{ Form::label('exercise', 'Exercise', ['class' => 'control-label']) }}
 							<?php
-								$workout = Exercise::orderBy('exercise', 'asc')->lists('exercise','id');
-								echo Form::select('exercise0', $workout);
+								$all = Exercise::all();
+
+								// Add exercises to array
+								$arrExr = array();
+								foreach($all as $exercise) {
+									$exr = array(
+										'id' => $exercise->id,
+										'majorMuscle' => $exercise->majorMuscle->name,
+										'name' => $exercise->exercise
+									);
+									array_push($arrExr, $exr);
+								}
+
+								// Sort by name and muscle
+								$name = array();
+								$muscle = array();
+								foreach ($arrExr as $key => $row) {
+    								$name[$key] = strtoupper($row['name']);
+    								$muscle[$key] = strtoupper($row['majorMuscle']);
+								}
+								array_multisort($name, SORT_ASC, $muscle, SORT_ASC, $arrExr);
+
+
+								// Output array as optoion in select
+								$select = '<select name="exercise0">';
+								foreach($arrExr as $exr) {
+									$select .= '<option value="' . $exr['id'] . '">' . 
+													$exr['majorMuscle'] . ' - ' . $exr['name'] . 
+												'</option>';
+								}
+
+								$select .= "</select>";
+								echo $select;
 							?>
 						</div>
 						<div class="form-group">

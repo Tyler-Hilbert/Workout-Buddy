@@ -54,7 +54,6 @@
 							var percentCell  = newRow.insertCell(i + 4);
 							var percentText  = document.createTextNode(percent + "lb");
 							percentCell.appendChild(percentText);
-							console.log(i);
 						}
 
 						var date = response[workout].date;
