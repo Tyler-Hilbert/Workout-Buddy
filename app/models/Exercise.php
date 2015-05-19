@@ -7,6 +7,6 @@ class Exercise extends Eloquent {
 
     public function majorMuscle()
     {
-        return $this->belongsTo('majorMuscle', 'major_muscle');
+        return $this->belongsTo('MajorMuscle', 'major_muscle');
     }
 }
