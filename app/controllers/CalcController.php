@@ -19,10 +19,14 @@ class CalcController extends \BaseController {
 				$exercise['reps'] = $wk->reps;
 				$exercise['weight'] = $wk->weight;
 				$exercise['date'] = $wk->workout_date;
-				$key = Exercise::where('id', $exerciseId)->first()->exercise;
+				$tempExercise = Exercise::where('id', $exerciseId)->first();
+				$key = $tempExercise->majorMuscle->name . " - " . $tempExercise->exercise;
 				$workout[$key] = $exercise;
 			}
 		}
+
+		ksort($workout);
+
 		if (!empty($workout)) {
 			return json_encode($workout);
 		} else {
