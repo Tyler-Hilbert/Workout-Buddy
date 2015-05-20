@@ -16,10 +16,10 @@ class CreateTimedExerciseTable extends Migration {
 			Schema::create('timed_exercise', function($table) {
 				$table->increments('id');
 				$table->String('exercise');
-				$table->time('time');
+				$table->time('time')->nullable();
 				$table->integer('major_muscle');
 				$table->integer('secondary_muscle')->nullable();
-				$table->integer('reps');
+				$table->integer('reps')->nullable();
 			});
 		}
 	}

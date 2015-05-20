@@ -15,7 +15,7 @@
                     <li><a href="{{ URL::route('workout.create') }}">Record Results</a></li>
                     <li><a href="{{ URL::route('athlete.create') }}">Athletes</a></li>
                     <li><a href="{{ URL::route('exercise.create') }}">Create Exercise</a></li>
-                    <li><a href="{{ URL::route('timed_exercise.create') }}">Timed Exercise</a></li>
+                    <li><a href="{{ URL::route('timed_exercise.create') }}">Goal Exercise</a></li>
                     <li><a href="{{ URL::route('secondarymuscle.create') }}">Create Secondary Muscle</a></li>
                     <li><a href="{{ URL::route('majormuscle.create') }}">Create Major Muscle</a></li>
                 </ul>

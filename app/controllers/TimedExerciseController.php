@@ -10,8 +10,6 @@ class TimedExerciseController extends \BaseController {
 	public function store() {
 		$rules = array(
 	        'exercise'				=> 'required',  
-	        'time'					=> 'required', 
-	        'reps' 					=> 'required',
 	        'majorMuscle'			=> 'required'             
 	    );
 

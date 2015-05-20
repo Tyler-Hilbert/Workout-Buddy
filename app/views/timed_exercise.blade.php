@@ -3,7 +3,7 @@
 @section('content')
 	<div class="container">
 		<div>
-			<h1>Timed Exercises</h1>
+			<h1>Goal Exercises</h1>
 			<table class="table" id="table">
 				<tr>
 					<td>Exercise</td>
@@ -30,7 +30,7 @@
 		</div>
 		<div>
 			<div class="well well-sm">
-				<h3>Add new Timed Exercise</h3>
+				<h3>Add New Goal Exercise</h3>
 				<div class="form-group">
 					{{ Form::label('exercise', 'Exercise name', ['class' => 'control-label']) }}
 					{{ Form::text('exercise', null, ['class' => 'form-control input-lg', 'placeholder' => 'Exercise name']) }}
